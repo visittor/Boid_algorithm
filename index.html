@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>WebGL Demo</title>
+    
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"
+      integrity="sha512-zhHQR0/H5SEBL3Wn6yYSaTTZej12z0hVZKOv3TwCUXT1z5qeqGcXJLLrbERYRScEDDpYIJhPC1fk31gqR783iQ=="
+      crossorigin="anonymous"
+    defer></script>
+    <script type="module" src="main.js"></script>
+
+    <style>
+      canvas {
+        /* position: absolute; */
+        /* width: 1100px; */
+        /* height: 700px; */
+        /* z-index: 15; */
+        /* top: 50%; */
+        /* left: 100%; */
+        /* margin: 0 0 0 -700px; */
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        background: black;
+      }
+      body {
+        background: black;
+        color: white; 
+        font-family: Georgia, "New Century Schoolbook", Times, serif; 
+        font-size: 20px;
+        line-height: 1.8;
+      }
+      #myText {
+        position: relative;
+        width: 1000px;
+        /* top: 900px; */
+        left: 50%;
+        margin: 0 0 0 -500px;
+        color: white;
+        /* padding: 20px; */
+      }
+      
+    </style>
+
+  </head>
+
+
+    <body>
+      <div>
+        <center>
+          <canvas id="glcanvas" width="1280px" height="720px"></canvas>
+        </center>
+        
+        <center>
+          <label for="avoid"> 
+            Avoid: 
+          </label> 
+          <input type="number" id="avoid" 
+          name="avoid" min="0" 
+          max="1" step="0.01" value="0.08" />
+          
+          <label for="matching"> 
+            Matching: 
+          </label> 
+          <input type="number" id="matching" 
+          name="matching" min="0" 
+          max="1" step="0.01" value="0.09" />
+
+          <label for="centering"> 
+            Center: 
+          </label> 
+          <input type="number" id="center" 
+          name="center" min="0" 
+          max="1" step="0.0001" value="0.0005" />
+          
+          <label for="predator"> 
+            Predator: 
+          </label> 
+          <input type="checkbox" id="predator">
+        </center>
+
+
+        <br>
+
+
+        <p id="myText">
+          In this project we demontrate the "Boid Algorithm", the algorithm that mimics the flocking behaviours of the group of organism; 
+          for example a school of fish or a flock of bird. Each particle follows three simple rules as listed below.
+        </p>
+
+        <ul id="myText">
+          <li>
+            each organism try to avoid crashing into its neighbor.
+          </li>
+          <li>
+            each organism try to match its velocity with average velocity of its neighbor.
+          </li>
+          <li>
+            each organism stir slightly toward the center of the mass of the group within its vision range.
+          </li>
+        </ul>
+
+        <p id="myText">
+          With each organism follows these simple rule, we can create an organic pattern that we may recognize in the nature.
+          In this project, I also add more simple rules as well. I add a predator who try to catch a group of organism 
+          while each organism tries to avoid the predator. Each organism (and predator) also has speed limit in which it cannot
+          move beyond or below the limit.
+        </p>
+      </div>
+      <br>
+    </body>
+
+</html>
